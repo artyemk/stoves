@@ -54,6 +54,9 @@ def add(stove):
 @app.route('/choose')
 def choose():
     return render_template("choose.html")
+@app.route('/howto')
+def howto():
+    return render_template("howto.html")
 
 @app.route('/financing')
 def financing():
