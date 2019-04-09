@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Pejsemesteren">
+  <title>Pejsemesteren</title>
+
+  <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="icon" type="image/png" href="static/sources/img/icon.png">
+  <link href="static/sources/Hover-master/css/hover.css" rel="stylesheet">
+  <!--http://ianlunn.github.io/Hover/-->
+
+  <style>
+    body {
+      overflow-x: hidden;
+    }
+  </style>
+
+  <link href="static/sources/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="nav site-header sticky-top" style="height: 70px; color: #878C96; background: #FFFFFF;" id="desktop">
+    <div class="d-flex flex-column flex-md-row " style="padding-top:26px; font-size: 24px; margin: 0 7%; font-weight: 500;line-height: 20px;font-size: 14px; width: 100%;">
+      <div>
+        <!--ЗАМЕНИТЬ НА ФАЙЛ-->
+        <a href="/"> <img src="static/sources/img/Logo.svg">
+        </a>
+      </div>
+      <div style="margin-left: auto; margin-right: 0; display: flex;">
+        <a class=" d-none d-md-inline-block active" href="/">Home</a>
+        <a class=" d-none d-md-inline-block" href="/choose">Choosing a stove</a>
+        <a class=" d-none d-md-inline-block" href="/financing">Financing</a>
+        <a class=" d-none d-md-inline-block" href="/contacts">Contacts</a>
+        <a class=" d-none d-md-inline-block" href="/cart"><svg width="25" height="20" viewBox="0 0 25 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M20.9686 18.5187C20.9686 19.3366 20.2964 20 19.4661 20C18.6347 20 17.9625 19.3366 17.9625 18.5187C17.9625 17.7008 18.6347 17.0375 19.4661 17.0375C20.2964 17.0375 20.9686 17.7008 20.9686 18.5187ZM13.586 18.5187C13.586 19.3366 12.9126 20 12.0823 20C11.2521 20 10.5787 19.3366 10.5787 18.5187C10.5787 17.7008 11.2521 17.0375 12.0823 17.0375C12.9126 17.0375 13.586 17.7008 13.586 18.5187ZM23.5596 6.38978L21.5394 12.3183C21.1832 13.3639 20.1914 14.0656 19.0734 14.0656H11.9455C10.8381 14.0656 9.84982 13.3744 9.48776 12.3439L7.16093 5.74615H23.0902C23.2518 5.74615 23.398 5.81934 23.4924 5.9483C23.5867 6.07842 23.6103 6.23875 23.5596 6.38978ZM24.6399 5.13389C24.2837 4.64479 23.7023 4.35202 23.0902 4.35202H6.66915L5.68204 1.56143C5.35183 0.62736 4.45553 0 3.45192 0H0.706423C0.316062 0 0 0.312518 0 0.697066C0 1.08278 0.316062 1.39413 0.706423 1.39413H3.45192C3.85407 1.39413 4.21377 1.64624 4.34586 2.02033L5.49217 5.26285C5.49571 5.27331 5.49925 5.2826 5.50279 5.29306L8.15158 12.8016C8.71058 14.3909 10.2355 15.4598 11.9455 15.4598H19.0734C20.8 15.4598 22.3307 14.3758 22.8803 12.7621L24.9017 6.83241C25.0963 6.25966 24.9984 5.62417 24.6399 5.13389Z"
+              fill="#878C96" />
+          </svg>
+        </a>
+        <a class=" d-none d-md-inline-block active">EN</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light" id="mobile">
+    <a class="navbar-brand" href="#"><img src="static/sources/img/Logo.svg"></a>
+    <button class="navbar-toggler" style="float: right; border-color: #FFFFFF;" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/choose">Choosing a stove</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/financing">Financing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contacts">Contacts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/cart">Cart</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="height: 565px">
+    <div class="carousel-inner" style="height: 565px">
+      <div class="carousel-item active" style="height: inherit; background-color: #000011; background-repeat: no-repeat; background-size: 100%;">
+      </div>
+      <div class="carousel-item" style="background-color: #000022; background-repeat: no-repeat; background-size: 100%; height: inherit">
+      </div>
+      <div class="carousel-item" style="background-color: #000033; background-repeat: no-repeat; background-size: 100%; height: inherit">
+      </div>
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="" aria-hidden="true"><svg width="30" height="60" viewBox="0 0 30 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M28.1599 60C28.6289 60 29.101 59.8156 29.4597 59.45C30.1801 58.7188 30.1801 57.5313 29.4597 56.8L4.0373 30.8848C3.56214 30.3973 3.56214 29.6035 4.0373 29.116L29.4597 3.20074C30.1801 2.4695 30.1801 1.28201 29.4597 0.550774C28.7424 -0.183591 27.5775 -0.183591 26.8601 0.550774L1.43773 26.4661C0.508877 27.4098 0 28.666 0 30.0004C0 31.3347 0.508877 32.591 1.43773 33.5347L26.8601 59.45C27.2188 59.8156 27.6909 60 28.1599 60Z"
+            fill="white" />
+        </svg>
+      </span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="" aria-hidden="true"><svg width="30" height="60" viewBox="0 0 30 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M1.84008 60C1.37106 60 0.898965 59.8156 0.540299 59.45C-0.1801 58.7188 -0.1801 57.5313 0.540299 56.8L25.9627 30.8848C26.4379 30.3973 26.4379 29.6035 25.9627 29.116L0.540299 3.20074C-0.1801 2.4695 -0.1801 1.28201 0.540299 0.550774C1.25763 -0.183591 2.42253 -0.183591 3.13986 0.550774L28.5623 26.4661C29.4911 27.4098 30 28.666 30 30.0004C30 31.3347 29.4911 32.591 28.5623 33.5347L3.13986 59.45C2.7812 59.8156 2.30911 60 1.84008 60Z"
+            fill="white" />
+        </svg>
+      </span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <div id="content" style="">
+
+    <div id="categories">
+      <h3 class="head">Categories</h3>
+      <ul class="cat">
+        <li><a href="/Pellet_stoves">Pellet stoves</a></li>
+        <li><a href="/Stoves">Stoves</a></li>
+        <li><a href="/Inserts">Inserts</a></li>
+        <li><a href="/Mass_stove">Mass stove</a></li>
+        <li><a href="/Chimneys">Chimneys</a></li>
+      </ul>
+      <hr align="right" width="165" size="3" color="#878C96" />
+      <ul class="cat">
+        <li><a href="Text template.html">Delivery options</a></li>
+        <li><a href="Text template.html">Buyer protection</a></li>
+        <li><a href="Text template.html">Private loan</a></li>
+      </ul>
+    </div>
+
+    <div id="info" style="width: 70%; display: inline-block;">
+      <h3 class="welcome">Welcome to Pejsemesteren</h3>
+      <div style="border-left: 1px solid #878C96;">
+        <p id="inf">If you want to warm your home yourself, we give you qualified advice and guidance and deliver it to your door, or we can also supply and install it all for you. Take a look at our website, find what you want and let us get
+          started with crackling comfortable, relaxing heat in your living room. </p>
+      </div>
+      <p style="padding-left: 24px; font-style: normal;font-weight: 500;line-height: 20px;font-size: 20px;color: #3C465A;"> Tommy Persson <span style="font-style: normal;font-weight: normal;line-height: 20px;font-size: 20px;color: #878C96;">, the
+          head of Pejsemesteren </span></p>
+
+      <a href="" style="padding-left: 0px;">
+      <div id="howto" style="background-color: #000022;; background-repeat: no-repeat; background-size: 100%; height: 170px; border-radius: 6px;">
+        <div style="float: left">
+          <h3 class="how">How to get the most out of your stove</h3>
+          <p class="howinfo">What you need to know before buying the new oven </p>
+        </div>
+        <div style="padding-top: 75px; margin-right: 50px; float: right">
+          <a class="hvr-forward"> <svg width="42" height="30" viewBox="0 0 42 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M41.6189 14.0353L28.6286 0.398457C28.1225 -0.132819 27.2993 -0.132819 26.7911 0.398457C26.285 0.931937 26.285 1.79609 26.7911 2.32736L37.5765 13.6473H1.29987C0.581685 13.6473 0 14.2579 0 15.0118C0 15.7658 0.581685 16.3764 1.29987 16.3764H37.5513L26.7911 27.6721C26.285 28.2034 26.285 29.0675 26.7911 29.601C27.0473 29.8655 27.3791 30 27.7109 30C28.0427 30 28.3766 29.8655 28.6286 29.601L41.6189 15.9642C42.127 15.4307 42.127 14.5688 41.6189 14.0353"
+                fill="white" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </a>
+      <!--Howto-->
+    </div>
+    <!--Info-->
+
+
+    <div id="info-2" style="margin-top: 0px!important">
+      <div class="pos-f-t">
+        <nav class="navbar">
+          <a style="margin: 0 auto; padding-left: 0px" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="cat">Categories <img src="static/sources/img/Arrow.svg" style="margin-left: 15px;"></span>
+          </a>
+        </nav>
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div class="p-4">
+            <ul class="cat">
+              <li><a href="/Pellet_stoves">Pellet stoves</a></li>
+              <li><a href="/Stoves">Stoves</a></li>
+              <li><a href="/Inserts">Inserts</a></li>
+              <li><a href="/Mass_stove">Mass stove</a></li>
+              <li><a href="/Chimneys">Chimneys</a></li>
+            </ul>
+            <hr align="right" width="165" size="3" color="#878C96" />
+            <ul class="cat">
+              <li><a href="Text template.html">Delivery options</a></li>
+              <li><a href="Text template.html">Buyer protection</a></li>
+              <li><a href="Text template.html">Private loan</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="welcome" id="welc">Welcome to Pejsemesteren</h3>
+
+<a href="" style="padding-left: 0px;">
+    <div id="howto-2" style="background-color: #000022;; background-repeat: no-repeat; background-size: auto; border-radius: 6px; height: 125px; padding-top: 15px; padding-left: 20px">
+      <div style="float: left; height: inherit; width: inherit">
+        <h3 class="how-2">How to get the most out <br> of your stove</h3>
+        <p class="howinfo-2">What you need to know <br> before buying the new oven </p>
+      </div>
+      <div style="float: right; padding-top: 30px; padding-top: 35px;padding-right: 30px;">
+        <a> <svg width="26" height="18" viewBox="0 0 26 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M24.9713 8.42116L17.1772 0.239074C16.8735 -0.0796914 16.3796 -0.0796914 16.0747 0.239074C15.771 0.559162 15.771 1.07765 16.0747 1.39642L22.5459 8.18837H0.779921C0.349011 8.18837 0 8.55475 0 9.00711C0 9.45947 0.349011 9.82585 0.779921 9.82585H22.5308L16.0747 16.6033C15.771 16.922 15.771 17.4405 16.0747 17.7606C16.2284 17.9193 16.4275 18 16.6265 18C16.8256 18 17.026 17.9193 17.1772 17.7606L24.9713 9.57851C25.2762 9.25842 25.2762 8.74125 24.9713 8.42116Z"
+              fill="white" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </a>
+
+    <div id="suppliers">
+      <p id="supp">Our suppliers:</p>
+      <p id="get">Get the most powerful stove from our best suppliers</p>
+
+      <div style="display: flex">
+        <img src="static/sources/img/Heta.png" alt="Heta" style="float: left; margin-right: auto; margin-top: 7px;">
+        <div class="spp"></div>
+        <img src="static/sources/img/Vento.png" alt="Vento" style="margin: 0 auto">
+        <div class="spp"></div>
+        <img src="static/sources/img/Meteor.png" alt="Meteor" style="margin: 0 auto; margin-top: 10px;">
+        <div class="spp"></div>
+        <img src="static/sources/img/Contura.png" alt="Contura" style="margin: 0 auto; margin-top: 30px;">
+        <div class="spp"></div>
+        <img src="static/sources/img/TermaTech.png" alt="TermaTech" style="float: right; margin-left: auto; margin-top: 25px;">
+      </div>
+    </div>
+
+    <div id="suppliers-2">
+      <div style="margin-top: 30px; width: 100%; display: inline-block">
+        <div style="display: inline-flex; float: left; width: 20%;">
+          <p id="supp">Our suppliers:</p>
+        </div>
+        <div style="display: inline-flex; float: right; width: 70%;">
+          <p id="get">Get the most powerful stove from our best suppliers</p>
+        </div>
+      </div>
+      <div style="margin-top: 20px;">
+        <div class="companies" style="border: none!important">
+          <a href="http://www.heta.lv/" style="padding-top: 20px; border: none!important">
+            <img src="static/sources/img/Heta.png" alt="Heta">
+          </a>
+        </div>
+
+        <div class="companies">
+          <a href="#" style="">
+            <img src="static/sources/img/Vento.png" alt="Vento">
+          </a>
+        </div>
+
+        <div class="companies">
+          <a href="#" style="padding-top: 18px;">
+            <img src="static/sources/img/Meteor.png" alt="Meteor">
+          </a>
+        </div>
+
+        <div class="companies">
+          <a href="#" style="padding-top: 22px;">
+            <img src="static/sources/img/Contura.png" alt="Contura">
+          </a>
+        </div>
+
+        <div class="companies" style="">
+          <a href="#" style="padding-top: 22px;">
+            <img src="static/sources/img/TermaTech.png" alt="TermaTech">
+          </a>
+        </div>
+
+      </div>
+    </div>
+    <!--Suppliers-->
+
+    <div id="contact" style="background-color: #000022; background-repeat: no-repeat; border-radius: 6px; background-size: 100%; height: 170px">
+      <div style="float: left; width: 50%; height: inherit">
+        <h3 class="how">We can call you back!</h3>
+        <p class="howinfo">Get the advice about choosing a stove </p>
+      </div>
+      <div style="width: 50%; float: right; margin-top: 65px; text-align: right; padding-right: 50px;">
+        <input type="text" placeholder="Enter your phone">
+        <button id="callme" class="hvr-back-pulse" href="#">Call me</button>
+      </div>
+    </div>
+
+
+    <div id="contact-2" style="background-color: #000022; background-repeat: no-repeat; border-radius: 6px; background-size: 100%; height: 123px">
+      <div style="float: left;height: inherit; padding-top: 15px; padding-left: 20px">
+        <h3 class="how-2">We can call you back!</h3>
+        <p class="howinfo-2">Get the advice about choosing a stove </p>
+        <input type="text" placeholder="Enter your phone" style="float: left">
+        <button id="callme" style="float: right" href="#">Call me</button>
+
+        <!--BACK PULSE-->
+      </div>
+    </div>
+    <!--Contact-->
+  </div>
+  <!--Content-->
+
+
+
+  <footer style="margin-top: 70px; background-color: #000022; background-repeat: no-repeat; background-size: 100%; height: 400px; padding-left: 10%; padding-right: 10%; padding-top: 40px">
+    <div style="height: 200px;" id="hz">
+      <div style="width: 40%; float: left; height: 200px;">
+        <img src="static/sources/img/Pejsem.svg">
+        <p id="foot">Items from catalog can be ordered from the Pejsemesteren by telephone or e-mail. All information about buyers protection, cookie files and privacy policy you can find here. </p>
+        <a href="https://www.facebook.com/pejsemesteren/" style="padding-left: 0px; "><img src="static/sources/img/facebook.svg" style="padding-top: 10px"> </a>
+      </div>
+      <!--div style="width: 700px; float: right">
+<script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCPo87GSSo_TfaBAIvm4tBCkdJnTV5KBag'></script><div style='overflow:hidden;height:200px;width:700px;'><div id='gmap_canvas' style='height:200px;width:700px; border-radius: 10px'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='https://add-map.org/'>embed google maps</a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=e41460425280bf78510f71f910f577cfea2b7ec9'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:12,center:new google.maps.LatLng(54.9509620516261,8.87304158059834),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(54.9509620516261,8.87304158059834)});infowindow = new google.maps.InfoWindow({content:'<strong>Pejsemesteren</strong><br>Kærgårdsvej 6A<br>6270 Tønder<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+</div-->
+    </div>
+
+
+    <div style="height: 200px;" id="zx">
+      <div>
+        <img src="static/sources/img/Pejsem.svg">
+        <p id="foot">Items from catalog can be ordered from the Pejsemesteren by telephone or e-mail. All information about buyers protection, cookie files and privacy policy you can find here. </p>
+        <a href="https://www.facebook.com/pejsemesteren/" style="padding-left: 0px; margin-bottom: 30px"><img src="static/sources/img/facebook.svg" style="padding-top: 10px;"> </a>
+      </div>
+    </div>
+
+    <hr align="center" width="100%" size="5" color="#878C96" style="margin-top: 40px" id="hrr" />
+
+    <div style="margin-top: 50px;" id="cont">
+      <div style="display: inline-block"><img src="static/sources/img/Call.svg">
+        <p style="display: inline-block; margin-right: 40px; margin-left: 10px">+45 40 40 61 39</p>
+      </div>
+      <div style="display: inline-block"><img src="static/sources/img/Mail.svg">
+        <p style="display: inline-block; margin-right: 40px; margin-left: 10px">mail@pejsemesteren.dk</p>
+      </div>
+      <div style="display: inline-block"><img src="static/sources/img/Map.svg">
+        <p style="display: initial; margin-right: 40px; margin-left: 10px">Kærgårdsvej 6A, 6270 Tønder, Denmark</p>
+      </div>
+      <p id="copyright">© 2019 Pejsemesteren</p>
+    </div>
+
+    <div style="margin-top: 30px;" id="cont-2">
+      <div style=""><img src="static/sources/img/Call.svg" style="width: 20px;">
+        <p style="display: inline-block; margin-left: 10px">+45 40 40 61 39</p>
+      </div>
+      <div style=""><img src="static/sources/img/Mail.svg">
+        <p style="display: inline-block; margin-left: 10px">mail@pejsemesteren.dk</p>
+      </div>
+      <div style=""><img src="static/sources/img/Map.svg" style="margin-left: 3px">
+        <p style="display: initial; margin-left: 10px">Kærgårdsvej 6A, 6270 Tønder, Denmark</p>
+      </div>
+      <p id="copyright" style="margin-top: 40px">© 2019 Pejsemesteren</p>
+    </div>
+
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

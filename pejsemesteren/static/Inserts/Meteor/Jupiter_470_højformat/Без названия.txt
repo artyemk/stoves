@@ -1,0 +1,9 @@
+A+
+Rammemål         495x 675 mm
+Glasmål              292 x 428 mm 
+Min. hulmål        445 x 622 mm
+Driftseffekt        3  - 9 KW
+Nominel             6,7 KW
+Røgstuds          150 mm
+
+Minimum afstand fra indsatsside til brændbar materiale er 350 mm
