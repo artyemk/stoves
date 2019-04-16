@@ -66,17 +66,10 @@ def financing():
 def contacts():
     return render_template("contacts.html")
 
-@app.route('/devivery')
-def devivery():
-    return render_template("Cart template.html")
-
 @app.route('/protection')
 def protection():
-    return render_template("Cart template.html")
+    return render_template("protect.html")
 
-@app.route('/loan')
-def loan():
-    return render_template("Cart template.html")
 
 @app.route('/<category>')
 def categories(category):
