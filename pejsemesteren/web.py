@@ -25,7 +25,6 @@ def remove(stove):
     session.pop("cart")
     arr.remove(stove)
     session["cart"] = arr
-    print(session['cart'])
     return redirect("/cart")
 
 @app.route('/cart')
@@ -36,8 +35,7 @@ def cart():
         for i in session['cart']:
             cart.append(db.stoves.find_one({"name":i}))
     except Exception as e:
-        print(e)
-    print(cart)
+        pass
     return render_template("cart.html",cart=cart)
 
 @app.route('/add_stove/<stove>')
