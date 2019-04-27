@@ -24,4 +24,4 @@ def createpdf(obj):
         pdf.ln(row_height*1)
         c+=1
     pdf.image("p.png", x=3, y=250, w=200)
-    pdf.output("simple_demo.pdf")
+    pdf.output("demo.pdf")

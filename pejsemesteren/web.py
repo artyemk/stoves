@@ -48,10 +48,15 @@ def add(stove):
     session['cart'] = cart_list
     return redirect("/cart")
 
-@app.route('/cart/topdf')
+@app.route('/carttopdf')
 def topdf():
-    print(session["cart"])
-    return send_file('', attachment_filename='ohhey.pdf')
+    arr = []
+    for i in session['cart']:
+        a = db.stoves.find_one({"name":i})
+        arr.append([a["manufacturer"],a["name"]])
+    createpdf(arr)
+    return send_file('demo.pdf', attachment_filename='ohhey.pdf')
+)
 
 @app.route('/choose')
 def choose():
