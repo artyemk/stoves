@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request, session, redirect, send_file
 #from flask_paginate import Pagination, get_page_args
 from pymongo import MongoClient
 from paginate import Pagination, get_page_args
@@ -31,7 +31,6 @@ def remove(stove):
 def cart():
     cart = []
     try:
-        print(session['cart'])
         for i in session['cart']:
             cart.append(db.stoves.find_one({"name":i}))
     except Exception as e:
@@ -48,6 +47,11 @@ def add(stove):
     cart_list.append(stove)
     session['cart'] = cart_list
     return redirect("/cart")
+
+@app.route('/cart/topdf')
+def topdf():
+    print(session["cart"])
+    return send_file('', attachment_filename='ohhey.pdf')
 
 @app.route('/choose')
 def choose():
