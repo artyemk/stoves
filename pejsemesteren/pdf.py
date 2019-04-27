@@ -7,7 +7,7 @@ def createpdf(obj):
     pdf.add_page()
     pdf.add_font('pep', '', r"Montserrat/Montserrat-SemiBold.ttf", uni=True)
     pdf.add_font('reg', '', r"Montserrat/Montserrat-Regular.ttf", uni=True)
-    pdf.add_font('zhop', '', r"/home/artyem/Downloads/Telegram Desktop/Montserrat/Montserrat-Light.ttf", uni=True)
+    pdf.add_font('zhop', '', r"Montserrat/Montserrat-Light.ttf", uni=True)
     pdf.set_font("pep", size=28)
     pdf.image("Logo.png", x=12, y=15, w=70)
     pdf.cell(200, 65, txt="My Cart", ln=1, align="L")
