@@ -56,7 +56,6 @@ def topdf():
         arr.append([a["manufacturer"],a["name"]])
     createpdf(arr)
     return send_file('demo.pdf', attachment_filename='ohhey.pdf')
-)
 
 @app.route('/choose')
 def choose():

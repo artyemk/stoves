@@ -3,6 +3,7 @@ from fpdf import FPDF
 data = [['Manufacturer', 'Product']]
 
 def createpdf(obj):
+    data.append(obj)
     pdf = FPDF()
     pdf.add_page()
     pdf.add_font('pep', '', r"Montserrat/Montserrat-SemiBold.ttf", uni=True)
