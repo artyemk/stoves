@@ -4,6 +4,7 @@ from pymongo import MongoClient
 from paginate import Pagination, get_page_args
 import pymongo
 from glob import glob
+from pdf import *
 from bson.json_util import loads
 
 db = MongoClient("mongodb://localhost:27017").pejem
@@ -53,7 +54,8 @@ def topdf():
     arr = []
     for i in session['cart']:
         a = db.stoves.find_one({"name":i})
-        arr.append([a["manufacturer"],a["name"]])
+        arr.append(a["manufacturer"])
+        arr.append(a["name"])
     createpdf(arr)
     return send_file('demo.pdf', attachment_filename='ohhey.pdf')
 
