@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Pejsemesteren">
+    <title>Pejsemesteren.dk</title>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="icon" type="image/png" href="static/sources/img/icon.png">
+    <link href="static/sources/Hover-master/css/hover.css" rel="stylesheet">
+    <!--http://ianlunn.github.io/Hover/-->
+
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+    </style>
+
+    <link href="static/sources/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="nav site-header sticky-top" style="height: 70px; color: #878C96; background: #FFFFFF;" id="desktop">
+        <div class="d-flex flex-column flex-md-row "
+            style="padding-top:26px; font-size: 24px; margin: 0 7%; font-weight: 500;line-height: 20px;font-size: 14px; width: 100%;">
+            <div>
+                <!--ЗАМЕНИТЬ НА ФАЙЛ-->
+                <a href="/"> <img src="static/sources/img/Logo.svg">
+                </a>
+            </div>
+            <div style="margin-left: auto; margin-right: 0; display: flex;">
+                <a class=" d-none d-md-inline-block active" href="/">Home</a>
+                <a class=" d-none d-md-inline-block" href="/add_stove_admin">Add stove</a>
+                <a class=" d-none d-md-inline-block" href="/change_banner_admin">Change banner</a>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <br>
+    {%if nofile%}
+    <h3>Error! No file selected</h3>
+    <br>
+    {%endif%}
+    {%if stove%}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-5">
+                {%if success%}
+                <h3>Successfully added</h3>
+                <br>
+                {%endif%}
+                <form action="/add_stove_admin" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Stove name</label>
+                        <input name="name" class="form-control" id="exampleFormControlInput1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelec">Choose manufacturer</label>
+                        <select name="manufacturer" class="form-control" id="exampleFormControlSelec">
+                            <option>Contura</option>
+                            <option>Heta</option>
+                            <option>Meteor</option>
+                            <option>Morsø</option>
+                            <option>TermaTech</option>
+                            <option>Meteor-Svendsen</option>
+                            <option>Drufire</option>
+                            <option>Vento</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlSelect1">Choose category</label>
+                        <select name="cat" class="form-control" id="exampleFormControlSelect1">
+                            <option>Pilleovne</option>
+                            <option>Brændeovne</option>
+                            <option>Indsatse</option>
+                            <option>Gaspejse</option>
+                            <option>Skorstene</option>
+                            <option>El-Pejse</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Description</label>
+                        <textarea name="descr" class="form-control" id="exampleFormControlTextarea1"
+                            rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="energy">Energy class (A,B,C, etc.) </label>
+                        <input name="energy" class="form-control" id="energy">
+                    </div>
+                    <div class="form-group">
+                        <label for="out">Output (kW)</label>
+                        <input name="output" class="form-control" id="out">
+                    </div>
+                    <div class="form-group">
+                        <label for="heat">Heats up to (m2) </label>
+                        <input name="heat" class="form-control" id="heat">
+                    </div>
+                    <div class="custom-file form-group" id="customFile">
+                        <br>
+                        <input name="file2" type="file" class="custom-file-input" id="exampleInputFile"
+                            aria-describedby="fileHelp">
+                        <label class="custom-file-label" for="exampleInputFile">
+                            Select picture for stove
+                        </label>
+                        <br>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add stove</button>
+                </form>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+    </div>
+    {%endif%}
+    {%if banner%}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            </div>
+            <div class="col-5">
+                {%if success%}
+                <h3>Banner successfully updated</h3>
+                <br>
+                {%endif%}
+                <form action="/change_1" method="POST" enctype="multipart/form-data">
+                    <div class="custom-file form-group" id="customFile">
+                        <br>
+                        <input name="file" type="file" class="custom-file-input" id="exampleInputFile"
+                            aria-describedby="fileHelp">
+                        <label class="custom-file-label" for="exampleInputFile">
+                            Select picture for first banner
+                        </label>
+                        <br>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload banner</button>
+                </form>
+                <br>
+                <br>
+                <form action="/change_2" method="POST" enctype="multipart/form-data">
+                    <div class="custom-file form-group" id="asd">
+                        <br>
+                        <input name="file" type="file" class="custom-file-input" id="qwe"
+                            aria-describedby="fileHelp">
+                        <label class="custom-file-label" for="qwe">
+                            Select picture for second banner
+                        </label>
+                        <br>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload banner</button>
+                </form>
+            </div>
+            <div class="col">
+            </div>
+        </div>
+    </div>
+    {%endif%}
+
+    <nav class="navbar navbar-expand-lg navbar-light" id="mobile">
+        <a class="navbar-brand" href="#"><img src="static/sources/img/Logo.svg"></a>
+        <button class="navbar-toggler" style="float: right; border-color: #FFFFFF;" type="button" data-toggle="collapse"
+            data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/add_stove_admin">Add stove</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/change_banner_admin">Change banner</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
