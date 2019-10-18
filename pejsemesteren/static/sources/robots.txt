@@ -1,0 +1,30 @@
+User-Agent: *
+Disallow: */index.php
+Disallow: /search/
+Disallow: /m/
+Disallow: /cart
+Disallow: */?
+Disallow: /news/rss/
+Disallow: /admin/
+Allow: /css
+Sitemap: https://pejsemesteren.dk/sitemap.xml
+
+User-agent: YandexBot
+Disallow: */index.php
+Disallow: /search/
+Disallow:/*cPath
+Disallow: /m/
+Disallow: /cart
+Disallow: /news/rss/
+Disallow: /admin/
+Allow: /css
+
+User-agent: GoogleBot
+Disallow: */index.php
+Disallow: /search/
+Disallow: /m/
+Disallow: /cart
+Disallow: /news/rss/
+Disallow: /admin/
+Allow: /css
+Sitemap: https://pejsemesteren.dk/sitemap.xml

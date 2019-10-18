@@ -5,8 +5,8 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Pejsemesteren">
-  <title>Pejsemesteren.dk</title>
+  <meta name="description" content="Køb {{product.name}} til en varde god pris fra producenten {{manufacturer}}. I butikken pejse | Pejsemesteren">
+  <title>Pilleovne, brændeovne, pejse og tilbehør - køb hos Pejsemesteren i det sydlige Danmark</title>
 
   <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -23,8 +23,36 @@
       background-color: #F5F5F5;
     }
   </style>
+  
+   <link rel="canonical" href="https://pejsemesteren.dk/{{category}}/{{manufacturer}}/{{product.name}}">
 
   <link href="../../../static/sources/css/style.css" rel="stylesheet">
+  
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+ <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141790934-2"></script>
+ <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-141790934-2');
+ </script>
+
+ <!-- Yandex.Metrika counter -->
+  <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(54294387, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+  </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/54294387" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
 </head>
 
 <body>
@@ -121,15 +149,14 @@
       <ul class="cat">
         <li><a href="/protection">Handelsbetingelser</a></li>
         <li><a href="/howto">Sådan får du mest ud af din brændeovn</a></li>
-<li><a href="https://www.facebook.com/pejsemesteren/" style="padding-left: 0px; ">
-        <img src="static/sources/img/facebook.png" style="padding-top: 10px"> </a>
+<li><a href="https://www.facebook.com/pejsemesteren/" style="padding-left: 0px; "><img src="static/sources/img/facebook.png" style="padding-top: 10px"> </a>
       </ul>
     </div>
 
 
     <div id="info-st">
-      <a href="/{{category.replace("_"," ")}}/{{manufacturer}}" class="linksactive">{{manufacturer}}</a>
-      <a class="linksactive">> {{product.name}}</a>
+      <a href="/{{category.replace("_"," ")}}/{{manufacturer}}" class="linksactive">{{manufacturer}} ></a>
+      <h1 class="linksactive">{{product.name}}</h1>
       <div style="margin-top: 30px; height: auto">
         <div class="image">
           <div class="slide">
@@ -221,7 +248,7 @@ border:0;">
 
             <div style="margin-top: 30px; width: 100%; display: inline-block">
               <div style="display: inline-flex; float: left; width: 40%;">
-                <a id="pdf" href="/add_stove/{{product.name}}">Tilføj til liste</a>
+                <a id="pdf" href="/add_stove/{{product.name}}" rel="nofollow">Tilføj til liste</a>
               </div>
             </div>
 

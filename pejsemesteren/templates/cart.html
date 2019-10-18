@@ -6,7 +6,8 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Pejsemesteren">
-  <title>Pejsemesteren.dk</title>
+  <meta name="robots" content="noindex, follow">
+  <title>Din indkøbsvogn - Pejsemesteren</title>
 
   <!--link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -14,7 +15,7 @@
   <link rel="icon" type="image/png" href="static/sources/img/icon.png">
   <link href="static/sources/Hover-master/css/hover.css" rel="stylesheet">
   <!--http://ianlunn.github.io/Hover/-->
-
+  
   <style>
     body {
       overflow-x: hidden;
@@ -22,6 +23,41 @@
   </style>
 
   <link href="static/sources/css/style.css" rel="stylesheet">
+   <link rel="canonical" href="https://pejsemesteren.dk/cart">
+  
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-PVNF7H7');</script>
+	<!-- End Google Tag Manager -->
+
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-141790934-2"></script>
+ <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-141790934-2');
+ </script>
+
+ <!-- Yandex.Metrika counter -->
+  <script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(54294387, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+  </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/54294387" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+ <!-- /Yandex.Metrika counter -->
 </head>
 
 <body>
@@ -32,6 +68,12 @@
         <a href="/"> <img src="static/sources/img/Logo.svg">
         </a>
       </div>
+	  
+		<!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PVNF7H7"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
+	
       <div style="margin-left: auto; margin-right: 0; display: flex;">
         <a class=" d-none d-md-inline-block active" href="/">Forside</a>
         <a class=" d-none d-md-inline-block" href="/choose">At vælge brændeovn</a>
@@ -128,13 +170,13 @@
 
 
     <div id="info-st">
-      <a class="linksactive">Din indkøbsvogn</a>
+      <h1 class="linksactive">Din indkøbsvogn</h1>
       <div style="margin-top: 30px; height: auto">
 
         {%for p in cart%}
         <div class="prod">
           <div class="img">
-            <img width="100" height="100" src="static/{{p.category}}/{{p.manufacturer}}/{{p.name}}/{{p.pic}}">
+            <img width="100" height="100" src="static/{{p.category}}/{{p.manufacturer}}/{{p.name.replace(" ","_")}}/{{p.pic}}">
           </div>
           <div class="inf">
             <p class="name">
@@ -168,7 +210,7 @@
         </div>
 
         <div style="display: inline-flex; float: right">
-          <a href="/carttopdf" id="pdf">Gem PDF</a>
+          <a href="/carttopdf" rel="nofollow" id="pdf">Gem PDF</a>
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, redirect, send_file, abort
+from flask import Flask, render_template, request, session, redirect, send_file, abort, send_from_directory
 #from flask_paginate import Pagination, get_page_args
 from werkzeug.utils import secure_filename
 from pymongo import MongoClient
@@ -13,7 +13,7 @@ UPLOAD_FOLDER = '/home/ubuntu/stoves/pejsemesteren/static/'
 db = MongoClient("mongodb://localhost:27017").pejem
 
 offset = 0
-app = Flask(__name__, static_url_path='/static')
+app = Flask(__name__,static_url_path='/static')
 app.secret_key = 'super secret key'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -21,6 +21,14 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def get_users(arr, offset=0, per_page=9):
     return arr[offset: offset + per_page]
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.route('/robots.txt')
+@app.route('/sitemap.xml')
+def static_from_root():
+    return send_from_directory("static/sources", request.path[1:])
 
 @app.route('/admin', methods=['GET', 'POST'])
 def admin():
@@ -46,7 +54,11 @@ def admin_stove():
                 return render_template('admin_actions.html', stove=True, nofile=True)
 
             path = app.config['UPLOAD_FOLDER']+request.form["cat"]+"/"+request.form["manufacturer"]+"/"+request.form["name"].replace(" ","_")
-            os.makedirs(path)
+            try:
+                original_umask = os.umask(0)
+                os.makedirs(path, 0o777)
+            finally:
+                os.umask(original_umask)
             file.save(path+"/1.jpg")
 
             db.stoves.insert_one({"name": request.form["name"], "description": request.form["descr"],
@@ -79,7 +91,7 @@ def admin_banner_1():
         if file.filename == '':
             return render_template('admin_actions.html', banner=True, nofile=True)
 
-        file.save("/home/artyem/Documents/stoves/pejsemesteren/static/sources/img/sl1.jpg")
+        file.save("/home/ubuntu/stoves/pejsemesteren/static/sources/img/sl1.jpg")
         return render_template("/admin_actions.html",banner=True,success=True)
     else:
         abort(403)
@@ -94,7 +106,7 @@ def admin_banner_2():
         if file.filename == '':
             return render_template('admin_actions.html', banner=True, nofile=True)
 
-        file.save("/home/artyem/Documents/stoves/pejsemesteren/static/sources/img/sl2.jpg")
+        file.save("/home/ubuntu/stoves/pejsemesteren/static/sources/img/sl2.jpg")
         return render_template("/admin_actions.html",banner=True,success=True)
     else:
         abort(403)
@@ -174,6 +186,8 @@ def protection():
 
 @app.route('/<category>')
 def categories(category):
+    if db.stoves.find_one({"category": category}) == None:
+        abort(404)
     mans = []
     for i in db.stoves.find({"category": category}):
         mans.append(i["manufacturer"])
@@ -182,6 +196,8 @@ def categories(category):
 
 @app.route('/<category>/<manufacturer>')
 def manufacturer_page(category, manufacturer):
+    if db.stoves.find_one({"category": category, "manufacturer": manufacturer}) == None:
+        abort(404)
     temp = db.stoves.find({"category": category, "manufacturer": manufacturer})
     page = int(request.args.get('page', 1))
     per_page = 9
@@ -194,6 +210,9 @@ def manufacturer_page(category, manufacturer):
 
 @app.route('/<category>/<manufacturer>/<product>')
 def product_info(category, manufacturer, product):
+    print("here")
+    if db.stoves.find_one({"category": category, "manufacturer": manufacturer, "name":product}) == None:
+        abort(404)
     p = db.stoves.find_one({"name": product})
     print(product.replace(" ", "_"))
     pics = glob("static/%s/%s/%s/*.png" %
@@ -204,4 +223,4 @@ def product_info(category, manufacturer, product):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port="5000", debug=True)
+    app.run(host='0.0.0.0', port="5000")
