@@ -1,9 +1,11 @@
-from flask import Flask, render_template, request, session, redirect, send_file, abort, send_from_directory
+from werkzeug.contrib.fixers import ProxyFix
+from flask import Flask, render_template, request, session, redirect, send_file, abort, jsonify ,  send_from_directory
 #from flask_paginate import Pagination, get_page_args
 from werkzeug.utils import secure_filename
 from pymongo import MongoClient
 from paginate import Pagination, get_page_args
 import pymongo
+from datetime import datetime
 from glob import glob
 from pdf import *
 from bson.json_util import loads
@@ -16,7 +18,13 @@ offset = 0
 app = Flask(__name__,static_url_path='/static')
 app.secret_key = 'super secret key'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+lang = "da"
 
+app.wsgi_app = ProxyFix(app.wsgi_app)
+
+def log_ip(route):
+    with open("ip_log.txt", "a") as log:
+        log.write(route)
 
 def get_users(arr, offset=0, per_page=9):
     return arr[offset: offset + per_page]
@@ -109,11 +117,31 @@ def admin_banner_2():
         file.save("/home/ubuntu/stoves/pejsemesteren/static/sources/img/sl2.jpg")
         return render_template("/admin_actions.html",banner=True,success=True)
     else:
-        abort(403)
+       abort(403)
 
 @app.route('/')
 def index():
-    return render_template('Home page.html')
+
+    if not request.headers.getlist("X-Forwarded-For"):
+       ip = request.remote_addr
+    else:
+       ip = request.headers.getlist("X-Forwarded-For")[0]
+
+    log_ip("/ %s : %s\n" % ( str(datetime.now().time()), ip ))
+    if lang == 'de':
+        return render_template('de_home.html')
+    return render_template('home.html')
+
+@app.route('/lang')
+def change_lang():
+    global lang
+    if lang == 'de':
+        lang = "da"
+        return redirect('/')
+    elif lang == "da":
+        lang = "de"
+        return redirect('/')
+
 
 
 @app.route('/remove/<stove>')
@@ -127,6 +155,13 @@ def remove(stove):
 
 @app.route('/cart')
 def cart():
+    if not request.headers.getlist("X-Forwarded-For"):
+       ip = request.remote_addr
+    else:
+       ip = request.headers.getlist("X-Forwarded-For")[0]
+
+    log_ip("/cart %s : %s %s\n" % ( str(datetime.now().time()), ip , request.headers.get('User-Agent')))
+
     cart = []
     try:
         for i in session['cart']:
@@ -161,41 +196,92 @@ def topdf():
 
 @app.route('/choose')
 def choose():
+    if not request.headers.getlist("X-Forwarded-For"):
+       ip = request.remote_addr
+    else:
+       ip = request.headers.getlist("X-Forwarded-For")[0]
+
+    log_ip("/choose %s : %s %s\n" % ( str(datetime.now().time()), ip, request.headers.get('User-Agent') ))
+
     return render_template("choose.html")
 
 
 @app.route('/howto')
 def howto():
+    if not request.headers.getlist("X-Forwarded-For"):
+       ip = request.remote_addr
+    else:
+       ip = request.headers.getlist("X-Forwarded-For")[0]
+
+    log_ip("/howto %s : %s %s\n" % ( str(datetime.now().time()), ip,request.headers.get('User-Agent') ))
+
     return render_template("howto.html")
 
 
 @app.route('/financing')
 def financing():
+    if not request.headers.getlist("X-Forwarded-For"):
+       ip = request.remote_addr
+    else:
+       ip = request.headers.getlist("X-Forwarded-For")[0]
+
+    log_ip("/financing %s : %s\n" % ( str(datetime.now().time()), ip ))
+
     return render_template("finance.html")
 
 
 @app.route('/contacts')
 def contacts():
+    if not request.headers.getlist("X-Forwarded-For"):
+       ip = request.remote_addr
+    else:
+       ip = request.headers.getlist("X-Forwarded-For")[0]
+
+    log_ip("/contacts %s : %s %s\n" % ( str(datetime.now().time()), ip, request.headers.get('User-Agent') ))
+
     return render_template("contacts.html")
 
 
 @app.route('/protection')
 def protection():
+    if not request.headers.getlist("X-Forwarded-For"):
+       ip = request.remote_addr
+    else:
+       ip = request.headers.getlist("X-Forwarded-For")[0]
+
+    log_ip("/protection %s : %s %s\n" % ( str(datetime.now().time()), ip, request.headers.get('User-Agent') ))
+
     return render_template("protect.html")
 
 
 @app.route('/<category>')
 def categories(category):
+    if not request.headers.getlist("X-Forwarded-For"):
+       ip = request.remote_addr
+    else:
+       ip = request.headers.getlist("X-Forwarded-For")[0]
+
+    log_ip("/category %s : %s %s\n" % ( str(datetime.now().time()), ip, request.headers.get('User-Agent') ))
+
     if db.stoves.find_one({"category": category}) == None:
         abort(404)
     mans = []
     for i in db.stoves.find({"category": category}):
+        if i["manufacturer"] == "Morsø":
+            continue
         mans.append(i["manufacturer"])
     return render_template('customer.html', category=category.replace("_", " "), mans=set(mans))
 
 
 @app.route('/<category>/<manufacturer>')
 def manufacturer_page(category, manufacturer):
+    if not request.headers.getlist("X-Forwarded-For"):
+       ip = request.remote_addr
+    else:
+       ip = request.headers.getlist("X-Forwarded-For")[0]
+
+    log_ip("/cat_man %s : %s %s\n" % ( str(datetime.now().time()), ip, request.headers.get('User-Agent') ))
+
     if db.stoves.find_one({"category": category, "manufacturer": manufacturer}) == None:
         abort(404)
     temp = db.stoves.find({"category": category, "manufacturer": manufacturer})
@@ -210,6 +296,13 @@ def manufacturer_page(category, manufacturer):
 
 @app.route('/<category>/<manufacturer>/<product>')
 def product_info(category, manufacturer, product):
+    if not request.headers.getlist("X-Forwarded-For"):
+       ip = request.remote_addr
+    else:
+       ip = request.headers.getlist("X-Forwarded-For")[0]
+
+    log_ip("/cat_man_pr %s : %s %s\n" % ( str(datetime.now().time()), ip, request.headers.get('User-Agent') ))
+
     print("here")
     if db.stoves.find_one({"category": category, "manufacturer": manufacturer, "name":product}) == None:
         abort(404)
