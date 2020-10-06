@@ -1,0 +1,12 @@
+[Unit]
+Description=stoves
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/gunicorn3 -b :5000 --chdir /home/ubuntu/stoves/pejsemesteren web:app 
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
